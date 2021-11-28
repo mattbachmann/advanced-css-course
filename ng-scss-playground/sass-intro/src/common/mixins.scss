@@ -1,0 +1,15 @@
+@mixin clearfix {
+  &::after { // clearfix hack to fix collapsed float elements
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin style-link-text($col) {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $col;
+}
+
+
