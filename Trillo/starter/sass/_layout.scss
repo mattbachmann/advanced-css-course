@@ -26,6 +26,7 @@
   background-color: var(--color-grey-dark-1);
 
   flex: 0 0 18%; // no grow, no shrink, fix size 18%
+  min-width: 20rem;
 
   display: flex;
   flex-direction: column;
