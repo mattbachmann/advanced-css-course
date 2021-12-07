@@ -1,3 +1,9 @@
+$bp-largest: 1200px; // TODO: em?
+$bp-large: 1120px;
+$bp-medium: 900px;
+$bp-small: 700px;
+$bp-smallest: 500px;
+
 :root { // root pseudo class - to declare CSS properties
   --color-primary: #eb2f64;
   --color-primary-light: #ff3366;
@@ -13,6 +19,23 @@
   --color-grey-dark-3: #999;
 
   --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, .3);
+
+  --line: 1px solid var(--color-grey-light-2);
+
+  --detail-spacing: 4.5rem;
+  --icon-size: 1.75rem;
+}
+
+@media only screen and (max-width: $bp-medium) {
+  :root {
+    --detail-spacing: 3rem;
+  }
+}
+
+@media only screen and (max-width: $bp-small) {
+  :root {
+    --icon-size: 1.5rem;
+  }
 }
 
 * {
@@ -29,6 +52,10 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; // 1rem = 10px = 62.5% of 16px
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%;
+  }
 }
 
 body {
