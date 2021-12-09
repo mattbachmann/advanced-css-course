@@ -1,0 +1,63 @@
+.container {
+  background-color: #eee;
+  width: 98vw;
+  margin: 30px auto;
+
+  display: grid;
+  grid-template-rows: 150px 150px; // 2 rows with height 150px
+  grid-template-rows: 1fr 1fr; // 2 rows with 1/2 of available container space not including gaps
+
+  // 2 rows with width 150px and 1 with 300px:
+  //grid-template-columns: repeat(2, 150px) 300px;
+
+  // 2 rows with width 150px and 1 with the rest:
+  //grid-template-columns: repeat(2, 150px) auto;
+  //grid-template-columns: repeat(2, 150px) 1fr; // fr fractional
+
+  // 3 equaly divided columns:
+  //grid-template-columns: repeat(3, 1fr); // fr fractional
+
+  // divide into 1/4 1/2 1/4 of available container space not including gaps:
+  grid-template-columns: 1fr 2fr 1fr;
+  // no need to worry about grid gap width :-)
+
+  //grid-row-gap: 30px;
+  //grid-column-gap: 30px;
+  grid-gap: 30px;
+}
+
+.item {
+  padding: 20px;
+  font-size: 30px;
+  font-family: sans-serif;
+  color: white;
+
+  &--1 {
+    background-color: orange;
+    // change grid cell position and row/col span:
+    //grid-row-start: 2;
+    //grid-row-end: 3;
+    //grid-column-start: 2;
+    //grid-column-end: 4; // exclusive
+    grid-row: 2 / 2; // shorthand
+    grid-column: 2 / 4;
+    grid-area: 2 / 2 / 2 / 4; // even shorter
+  }
+  &--2 {
+    background-color: yellowgreen;
+  }
+  &--3 {
+    background-color: blueviolet;
+  }
+  &--4 {
+    background-color: pink;
+  }
+  &--5 {
+    background-color: blue;
+  }
+  &--6 {
+    background-color: saddlebrown;
+    grid-area: 1 / 3 / -1 / -1; // even shorter
+    z-index: 10; // can overlap
+  }
+}
