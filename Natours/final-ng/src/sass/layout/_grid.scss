@@ -18,7 +18,7 @@
     @include clearfix;
 
     [class^="col-"] { // select all classes that start with col-
-        background-color: yellow;
+        //background-color: yellow;
         float: left;
 
         &:not(:last-child) {
