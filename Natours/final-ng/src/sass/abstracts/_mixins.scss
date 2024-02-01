@@ -13,8 +13,13 @@
     transform: translate(-50%, -50%);
 }
 
+@mixin respond-phone {
+    @media(max-width: 600px) { // Should be 37.5em = 600px / 16px, because user could change default font size
+        @content; // @content is code passed in from the caller inside curly braces
+    }
+}
 
-// MEDIA QUERY MANAGER
+// MEDIA QUERY MANAGER - DESKTOP FIRST [w 1200 - 1800], test for max-width of smaller screens
 /*
 0 - 600px:      Phone
 600 - 900px:    Tablet portrait
@@ -22,7 +27,7 @@
 [1200 - 1800] is where our normal styles apply
 1800px + :      Big desktop
 
-$breakpoint arguement choices:
+$breakpoint arguement choices: (just a name)
 - phone
 - tab-port
 - tab-land
@@ -34,7 +39,9 @@ ORDER: Base + typography > general layout + grid > page layout > components
 */
 @mixin respond($breakpoint) {
     @if $breakpoint == phone {
-        @media only screen and (max-width: 37.5em) { @content };    //600px
+        @media only screen and (max-width: 37.5em) {
+          @content // @content is code passed in from the caller inside curly braces
+        };    //600px
     }
     @if $breakpoint == tab-port {
         @media only screen and (max-width: 56.25em) { @content };     //900px
@@ -42,7 +49,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
     @if $breakpoint == tab-land {
         @media only screen and (max-width: 75em) { @content };    //1200px
     }
-    @if $breakpoint == big-desktop {
+    @if $breakpoint == big-desktop { // use min-width 4 larger than default screens
         @media only screen and (min-width: 112.5em) { @content };    //1800
     }
 }

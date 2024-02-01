@@ -10,6 +10,13 @@ html {
     // This defines what 1rem is
     font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5% !
 
+    //@media (max-width: 600px) { // 4 phone - also works, but breakpoints not flexible - better use _mixins.scss
+    //  font-size: 50%;
+    //}
+
+    // always larger media query first (desktop first)
+    // check by inspecting html element in browser with "Responsive" device and changing width
+
     @include respond(tab-land) { // width < 1200?
         font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
     }
@@ -17,10 +24,15 @@ html {
     @include respond(tab-port) { // width < 900?
         font-size: 50%; //1 rem = 8px, 8/16 = 50%
     }
-    
+
+    @include respond-phone { // simple mixin without args - remember last media match wins
+      font-size: 31.25%; // 1 rem = 5px, 5/16 = 31.25%
+    }
+
     @include respond(big-desktop) {
         font-size: 75%; //1rem = 12, 12/16
     }
+
 }
 
 body {
