@@ -1,14 +1,16 @@
 .composition {
-    position: relative;
+    position: relative; // child uses position: absolute to put images on top of each other
 
     &__photo {
-        width: 55%;
+        width: 55%; // Always use percentages for responsive images
+
         box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
         border-radius: 2px;
-        position: absolute;
+        outline-offset: 2rem;
+
+        position: absolute; // put images on top of each other (parent has to be position: relative)
         z-index: 10;
         transition: all .2s;
-        outline-offset: 2rem;
 
         @include respond(tab-port) {
             float: left;
@@ -58,7 +60,7 @@
 
     }
 
-    &:hover &__photo:not(:hover) {
+    &:hover &__photo:not(:hover) { // Hover on composition with a photo which is not hovered, when another photo is hovered
         transform: scale(.95);
     }
     //composition:hover composition__photo:not(:hover) {
