@@ -164,6 +164,7 @@
 
 
     //@include respond(tab-port) {
+  // rewrite turnable card, because no real hover on mobile - it corresponds to tap
     @media only screen and (max-width: 56.25em),
             only screen and (hover: none) {
 
@@ -178,15 +179,14 @@
             box-shadow: none;
 
             &--back {
-                transform: rotateY(0);
+                transform: rotateY(0); // cannot delete, because need to overwrite previous code
                 clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
             }
         }
 
-        &:hover &__side--front {
+        &:hover &__side--front {  // cannot delete, because need to overwrite previous code
             transform: rotateY(0);
         }
-
 
         &__details {
             padding: 1rem 3rem;
@@ -197,7 +197,7 @@
             position: relative;
             top: 0%;
             left: 0;
-            transform: translate(0);
+            transform: translate(0); // cannot delete, because need to overwrite previous code
             width: 100%;
             padding: 7rem 4rem 4rem 4rem;
         }
