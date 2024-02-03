@@ -25,7 +25,7 @@
 
             @include respond(tab-port)  {
                 top: 0;
-                transform: scale(1.2);
+                transform: scale(1.2); // Scale up image on mobile
             }
         }
 

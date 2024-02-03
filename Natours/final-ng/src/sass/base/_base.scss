@@ -16,6 +16,7 @@ html {
 
     // always larger media query first (desktop first)
     // check by inspecting html element in browser with "Responsive" device and changing width
+    // Chrome DevTools also has an option to 'show media queries' in the settings (3 dots in top right corner)
 
     @include respond(tab-land) { // width < 1200?
         font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
@@ -25,9 +26,9 @@ html {
         font-size: 50%; //1 rem = 8px, 8/16 = 50%
     }
 
-    @include respond-phone { // simple mixin without args - remember last media match wins
-      font-size: 31.25%; // 1 rem = 5px, 5/16 = 31.25%
-    }
+    //@include respond-phone { // simple mixin without args - remember last media match wins
+    //  font-size: 31.25%; // 1 rem = 5px, 5/16 = 31.25%
+    //}
 
     @include respond(big-desktop) {
         font-size: 75%; //1rem = 12, 12/16
@@ -40,7 +41,7 @@ body {
     padding: 3rem;
 
     @include respond(tab-port) {
-        padding: 0;
+        padding: 0; // remove padding on smaller screens
     }
 }
 
