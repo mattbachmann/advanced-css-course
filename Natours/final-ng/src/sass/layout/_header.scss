@@ -16,14 +16,15 @@
         height: 95vh;
     }
 
-    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
-            only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
-            only screen and (min-width: 125em) {
+  // dpi resolution for Apple retina displays (192dpi)
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), // combine different conditions with comma
+            only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), // combine different conditions with comma
+            only screen and (min-width: 125em) { // larger image for screens with min-width: 125em = 2000px
         background-image: linear-gradient(
             to right bottom,
             rgba($color-primary-light, 0.8),
             rgba($color-primary-dark, 0.8)),
-        url(../../assets/img/hero.jpg);
+        url(../../assets/img/hero.jpg); // larger image for screens with min-width: 125em = 2000px
     }
 
     @include respond(phone) {
