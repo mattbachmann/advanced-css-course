@@ -18,6 +18,7 @@
     }
 
   // dpi resolution for Apple retina displays (192dpi)
+  // only screen applies device screen, not print
   @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), // combine different OR conditions with comma
             (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
             only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), // combine different conditions with comma

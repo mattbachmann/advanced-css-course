@@ -166,7 +166,7 @@
     //@include respond(tab-port) {
   // rewrite turnable card, because no real hover on mobile - it corresponds to tap
     @media only screen and (max-width: 56.25em),
-            only screen and (hover: none) {
+            only screen and (hover: none) { // touch device without hover
 
         height: auto;
         border-radius: 3px;
