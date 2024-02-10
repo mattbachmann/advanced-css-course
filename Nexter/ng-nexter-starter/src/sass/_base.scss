@@ -44,8 +44,8 @@ body {
   // This design allows full-bleed-sections to take all the width.
   // Otherwise could have used justify-content to just center the grid
   // Putting labels in edgy brackets between the rows for easier reference
-  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] 1fr [center-start]
-    repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end];
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem,1fr) [center-start]
+    repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem,1fr) [full-end];
 
   & > * {
     padding: 40px;
