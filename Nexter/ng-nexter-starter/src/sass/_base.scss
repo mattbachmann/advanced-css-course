@@ -33,3 +33,23 @@ body {
   font-weight: 300;
   line-height: 1.6; // 16px
 }
+
+.container {
+  display: grid;
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content); // grid rows with heights
+
+  // 8 column-layout (Bootstrap has a 12 column-layout)
+  // 8 columns in the center with min-content as min-width and 14rem or 140px as max-width (  14rem = 140px * 8 = 1120px )
+  // Column order: side-bar, then 8 columns surrounded by 1fr columns to absorb the remaining space around the 8 center columns
+  // This design allows full-bleed-sections to take all the width.
+  // Otherwise could have used justify-content to just center the grid
+  // Putting labels in edgy brackets between the rows for easier reference
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] 1fr [center-start]
+    repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end];
+
+  & > * {
+    padding: 40px;
+    font-size: 3rem; // just for debugging
+  }
+
+}
