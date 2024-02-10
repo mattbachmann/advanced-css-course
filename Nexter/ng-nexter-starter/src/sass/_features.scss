@@ -1,5 +1,39 @@
 .features {
-  background-color: lightpink;
+  //background-color: lightpink;
   grid-column: center-start / center-end;
   grid-row: 2;
+  align-items: start;
+
+  margin: 15rem 0; // 15rem top and bottom margin
+
+  // nested grid which is independent from parent grid - TODO: check for subgrid support (aligns better with parent grid)
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto; // 2 rows with auto height
+  grid-gap: 6rem; // 60px gap between columns
+}
+
+// Independent reusable component/ block - could put in its own file
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr; // 2 columns with min-content and 1fr
+  // don't need to specify grid-template-rows because it's auto by default
+  grid-row-gap: 1.5rem; // 15px gap between rows
+  grid-column-gap: 2.5rem; // 25px gap between columns
+  //align-items: center;
+
+  &__icon {
+    //grid-row: 1 / -1; // -1 doesn't work without grid-template-rows!
+    grid-row: 1 / span 2; // spans all 2 rows
+
+    fill: $color-primary; // fill svg with color
+    width: 4.5rem;
+    height: 4.5rem;
+
+    transform: translateY(-1rem); // move up 1rem to center in middle of text - cannot use align-items on feature because of span 2
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
 }
