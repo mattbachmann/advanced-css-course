@@ -36,7 +36,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-rows: 80vh min-content 40vw repeat(3, min-content); // grid rows with heights
+  grid-template-rows: 80vh min-content minmax(min-content,40vw) repeat(3, min-content); // grid rows with heights
 
   // 8 column-layout (Bootstrap has a 12 column-layout)
   // 8 columns in the center with min-content as min-width and 14rem or 140px as max-width (  14rem = 140px * 8 = 1120px )
@@ -47,9 +47,9 @@ body {
   grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem,1fr) [center-start]
     repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem,1fr) [full-end];
 
-  & > * {
-    padding: 40px;
-    font-size: 3rem; // just for debugging
-  }
+  //& > * {
+  //  padding: 40px;
+  //  font-size: 3rem; // just for layout debugging
+  //}
 
 }
