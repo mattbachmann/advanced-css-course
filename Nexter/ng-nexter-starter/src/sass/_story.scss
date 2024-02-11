@@ -3,6 +3,34 @@
   &__pictures {
     grid-column: full-start / col-end 4;
     background-color: $color-primary;
+    $color-primary-50-percent: rgba($color-primary, .5); // cover the bg img with 50% color to make it blend in
+    background-image: linear-gradient($color-primary-50-percent, $color-primary-50-percent), url("../assets/img/back.jpg");
+
+    display: grid;
+    // 6 x 6 layout - 2 for surrounding space and 4 for the picture
+    // so the picture takes 4/6 = 2/3 of the available space
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center; // aligns cell content vertically (cross-axis)
+    //align-content: center;
+  }
+
+  &__img {
+    width: 100%;
+
+    &--1 {
+      grid-row: 2 / 6;
+      grid-column: 2 / 6;
+      box-shadow: 0 2rem 5rem rgba(black, .1);
+    }
+
+    &--2 {
+      width: 115%; // overflows the grid
+      grid-row: 4 / 6;
+      grid-column: 4 / 7;
+      z-index: 20; // to make overflow visible increase z-index
+    }
+
   }
 
   &__content {
@@ -17,8 +45,8 @@
     //align-items: flex-start; // default is stretch - will stretch the button to full width
 
     display: grid; // center the content horizontally and stop the button from stretching across the full width
-    //justify-content: center; // aligns vertically in rows (main-axis)
-    align-content: center; // aligns horizontally in columns (cross-axis)
+    //justify-content: center; // aligns grid inside grid container vertically in rows (main-axis)
+    align-content: center; // aligns grid inside grid container (cross-axis)
     justify-items: start; // default is stretch - will stretch the button to full width
   }
 
