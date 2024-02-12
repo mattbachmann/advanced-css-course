@@ -87,12 +87,38 @@
 </div>
 <section class="homes">
   <!-- div.home{Home card $}*6 -->
-  <div class="home">Home card 1</div>
-  <div class="home">Home card 2</div>
-  <div class="home">Home card 3</div>
-  <div class="home">Home card 4</div>
-  <div class="home">Home card 5</div>
-  <div class="home">Home card 6</div>
+  <div *ngFor="let home of homes; index as i" class="home">
+    <img [src]="'assets/img/house-' + (i + 1) + '.jpeg'" [alt]="'House ' + (i + 1)" class="home__img"/>
+    <svg class="home__like">
+      <use xlink:href="assets/img/sprite.svg#icon-heart-full"></use>
+    </svg>
+    <h5 class="home__name">{{ home.name }}</h5>
+    <div class="home__location">
+      <svg>
+        <use xlink:href="assets/img/sprite.svg#icon-map-pin"></use>
+      </svg>
+      <p>{{ home.location }}</p>
+    </div>
+    <div class="home__rooms">
+      <svg>
+        <use xlink:href="assets/img/sprite.svg#icon-profile-male"></use>
+      </svg>
+      <p>{{home.rooms + ' rooms'}}</p>
+    </div>
+    <div class="home__area">
+      <svg>
+        <use xlink:href="assets/img/sprite.svg#icon-expand"></use>
+      </svg>
+      <p>{{ home.area + ' m' }}<sup>2</sup></p>
+    </div>
+    <div class="home__price">
+      <svg>
+        <use xlink:href="assets/img/sprite.svg#icon-key"></use>
+      </svg>
+      <p>{{'$ ' + (home.price | number: '1.0-0' : 'en-US')}}</p>
+    </div>
+    <button class="cta">Contact realtor</button>
+  </div>
 </section>
 <section class="gallery">
   Gallery
