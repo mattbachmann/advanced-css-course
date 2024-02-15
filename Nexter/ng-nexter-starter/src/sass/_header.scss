@@ -1,4 +1,62 @@
 .header {
   background-color: $color-grey-light-2;
   grid-column: full-start / col-end 6; // No dash between col-end and 6
+  //overflow: hidden;
+  padding: 8rem;
+  padding-top: 4rem;
+
+  // image with transparent color overlay as linear gradient
+  background-image: linear-gradient(rgba($color-secondary, .93), rgba($color-secondary, .93)), url(../assets/img/hero.jpeg);
+  background-size: cover;
+  background-position: center;
+
+  display: grid;
+  grid-template-rows: 1fr max-content 6rem 1fr;
+  grid-row-gap: 1.5rem;
+
+  grid-template-columns: max-content; // make grid container only as wide as the content
+  justify-content: center; // center grid container horizontally
+
+  &__logo {
+    height: 3rem;
+    justify-self: center;
+  }
+
+  &__btn {
+    justify-self: start; // to start of row
+    align-self: start; // and start of column
+  }
+
+  &__seenon-text {
+    font-size: 1.6rem;
+    color: $color-grey-light-2;
+
+    display: grid;
+    //grid-template-columns: 1fr min-content 1fr; // min-content will break text into different lines
+    grid-template-columns: 1fr max-content 1fr;
+    align-items: center; // center vertically
+    grid-gap: 1rem;
+
+    // 2 lines before and after the text
+    &::before,
+    &::after {
+      content: '';
+      height: 1px;
+      display: block;
+      background-color: currentColor; // same as before
+    }
+
+  }
+
+  &__seenon-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 3rem;
+    justify-items: center;
+
+    img {
+      height: 2.5rem;
+      filter: brightness(70%); // make logos a bit less visible
+    }
+  }
 }

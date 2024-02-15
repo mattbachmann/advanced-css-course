@@ -34,6 +34,9 @@
 
 .heading-1 {
   @extend %heading;
+  font-size: 4.5rem;
+  color: $color-grey-light-1;
+  line-height: 1; // no extra space between lines (default is 1.2)
 }
 
 // Button should be a reusable component in its own file
