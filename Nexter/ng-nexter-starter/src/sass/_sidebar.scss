@@ -2,4 +2,34 @@
   background-color: $color-primary;
   grid-column: sidebar-start / sidebar-end; // grid lines see _base.scss
   grid-row: 1 / -1; // spans from 1st row to last row
+
+  display: flex;
+  justify-content: center; // center horizontally on main axis
+}
+
+.nav-btn {
+  border: none;
+  border-radius: 0;
+
+  background-color: white;
+  height: 2px;
+  width: 4.5rem;
+  margin-top: 4rem;
+
+  &::before,
+  &::after {
+    background-color: white;
+    height: 2px;
+    width: 4.5rem;
+    display: block;
+    content: '';
+  }
+
+  &::before {
+    transform: translateY(-1.5rem);
+  }
+  &::after {
+    transform: translateY(1.3rem);
+  }
+
 }
