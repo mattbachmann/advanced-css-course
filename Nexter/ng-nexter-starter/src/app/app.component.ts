@@ -22,4 +22,10 @@ export class AppComponent {
     new Home('Majestic Palace House', 18, 4230, 9500000, 'Essen, Germany'),
     new Home('Modern Family Apartment', 3, 180, 600000, 'Milano, Italy'),
   ];
+
+  galleryImgs = [...Array(14).keys()];
+
+  constructor() {
+    console.log(this.galleryImgs);
+  }
 }
