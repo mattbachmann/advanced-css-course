@@ -16,6 +16,7 @@ $font-display: 'Josefin Sans', sans-serif;
 
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
 
 *,
 *::before,
@@ -56,9 +57,12 @@ body {
   grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem,1fr) [center-start]
     repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem,1fr) [full-end];
 
-  //& > * {
-  //  padding: 40px;
-  //  font-size: 3rem; // just for layout debugging
-  //}
+  @media only screen and (max-width: $bp-large) {
+    // Remove sidebar column and put it on top as first row to save space
+    // Good there are labels to reference the grid lines, otherwise all the numbers would have to be changed :-)
+    grid-template-rows: 6rem 80vh min-content minmax(min-content,40vw) repeat(3, min-content); // grid rows with heights
+    grid-template-columns: [full-start] minmax(6rem,1fr) [center-start]
+    repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem,1fr) [full-end];
+  }
 
 }
