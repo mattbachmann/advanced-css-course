@@ -11,10 +11,12 @@
   background-position: center;
 
   display: grid;
-  grid-template-rows: 1fr max-content 6rem 1fr;
+  // 1fr for logo, min-conten for 'Your own home', then the heading-1 and 1fr for the rest
+  // the heading-row will take as much space as it needs, and the rest will take the rest of the space
+  grid-template-rows: 1fr min-content minmax(6rem, max-content) 1fr;
   grid-row-gap: 1.5rem;
 
-  grid-template-columns: max-content; // make grid container only as wide as the content
+  grid-template-columns: minmax(min-content, max-content); // minmax will make sure the column is as wide as the min-content, but not wider than the max content
   justify-content: center; // center grid container horizontally
 
   &__logo {
@@ -53,9 +55,11 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 3rem;
     justify-items: center;
+    align-items: center;
 
     img {
       height: 2.5rem;
+      max-width: 100%; // make sure images don't overflow
       filter: brightness(70%); // make logos a bit less visible
     }
   }
