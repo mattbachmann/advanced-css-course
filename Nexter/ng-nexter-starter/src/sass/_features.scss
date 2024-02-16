@@ -9,25 +9,36 @@
   margin: 15rem 0; // 15rem top and bottom margin
 
   // nested grid which is independent from parent grid - TODO: check for subgrid support (aligns better with parent grid)
-  display: grid;
+  @supports(display: grid) { // check if browser supports grid - IE or older Edge and Safari don't support CSS grid
+    display: grid;
 
-  // make the number of columns dynamic based on the available space with auto-fit and minmax
-  // size of column stays between 250px / 25rem and 1fr (1fr = remaining space)
-  // auto-fit makes sure that as many columns as possible are displayed in the available space
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    // make the number of columns dynamic based on the available space with auto-fit and minmax
+    // size of column stays between 250px / 25rem and 1fr (1fr = remaining space)
+    // auto-fit makes sure that as many columns as possible are displayed in the available space
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
 
-  grid-gap: 6rem; // 60px gap between columns
-  align-items: start; // important to align text at start of column - otherwise would look messy
+    grid-gap: 6rem; // 60px gap between columns
+    align-items: start; // important to align text at start of column - otherwise would look messy
+  }
 }
 
 // Independent reusable component/ block - could put in its own file
 .feature {
-  display: grid;
-  grid-template-columns: min-content 1fr; // 2 columns with min-content and 1fr
-  // don't need to specify grid-template-rows because it's auto by default
-  grid-row-gap: 1.5rem; // 15px gap between rows
-  grid-column-gap: 2.5rem; // 25px gap between columns
-  //align-items: center;
+  float: left; // ignored by grid - fallback for older browsers like IE, older Edge and older Safari
+  width: 33.333%; // 3 columns
+  margin-bottom: 6rem; // 60px bottom margin
+
+  @supports(display: grid) {
+    width: auto; // reset to auto for grid
+    margin-bottom: 0; // reset to 0 for grid
+
+    display: grid;
+    grid-template-columns: min-content 1fr; // 2 columns with min-content and 1fr
+    // don't need to specify grid-template-rows because it's auto by default
+    grid-row-gap: 1.5rem; // 15px gap between rows
+    grid-column-gap: 2.5rem; // 25px gap between columns
+    //align-items: center;
+  }
 
   &__icon {
     //grid-row: 1 / -1; // -1 doesn't work without grid-template-rows!
