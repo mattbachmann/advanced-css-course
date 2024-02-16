@@ -85,6 +85,8 @@
 
   &__btn {
     grid-column: span 2;
+    height: 5rem; // make fix height
+    align-self: end; // align to bottom of grid cell - otherwise the columns would not have the same height
   }
 }
 
