@@ -10,6 +10,10 @@
   padding: 8rem;
   padding-top: 4rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    padding: 5rem;
+  }
+
   // image with transparent color overlay as linear gradient
   background-image: linear-gradient(rgba($color-secondary, .93), rgba($color-secondary, .93)), url(../assets/img/hero.jpeg);
   background-size: cover;

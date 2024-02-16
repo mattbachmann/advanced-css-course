@@ -18,6 +18,7 @@ $font-display: 'Josefin Sans', sans-serif;
 $bp-largest: 75em; // 1200px
 $bp-large: 62.5em; // 1000px
 $bp-medium: 50em; // 800px
+$bp-small: 37em; // 600px
 
 *,
 *::before,
@@ -69,7 +70,7 @@ body {
   @media only screen and (max-width: $bp-medium) {
     // Put realtors below the header
     // Put story content before the story pictures
-    grid-template-rows: 6rem calc(100vh - 6rem) min-content min-content minmax(min-content,40vw) repeat(3, min-content); // grid rows with heights
+    grid-template-rows: 6rem calc(100vh - 6rem); // grid rows with heights - implicit rows have min-content by default
   }
 
 }
