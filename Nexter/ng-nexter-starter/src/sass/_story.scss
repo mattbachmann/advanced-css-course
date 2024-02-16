@@ -5,6 +5,7 @@
     background-color: $color-primary;
     $color-primary-50-percent: rgba($color-primary, .5); // cover the bg img with 50% color to make it blend in
     background-image: linear-gradient($color-primary-50-percent, $color-primary-50-percent), url("../assets/img/back.jpg");
+    background-size: cover;
 
     display: grid;
     // 6 x 6 layout - 2 for surrounding space and 4 for the picture
@@ -13,6 +14,12 @@
     grid-template-columns: repeat(6, 1fr);
     align-items: center; // aligns cell content vertically (cross-axis)
     //align-content: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      padding: 2rem;
+      grid-row: 6;
+      grid-column: full-start / full-end;
+    }
   }
 
   &__img {
@@ -22,6 +29,12 @@
       grid-row: 2 / 6;
       grid-column: 2 / 6;
       box-shadow: 0 2rem 5rem rgba(black, .1);
+
+      @media only screen and (max-width: $bp-medium) {
+        width: 70%;
+        grid-row: 1 / 5;
+        grid-column: 1 / 5;
+      }
     }
 
     &--2 {
@@ -29,6 +42,14 @@
       grid-row: 4 / 6;
       grid-column: 4 / 7;
       z-index: 20; // to make overflow visible increase z-index
+
+      @media only screen and (max-width: $bp-medium) {
+        width: 70%;
+        grid-row: 3 / -1;
+        grid-column: 3 / -1;
+        align-self: end;
+        justify-self: end;
+      }
     }
 
   }
@@ -36,6 +57,11 @@
   &__content {
     grid-column: col-start 5 / full-end;
     background-color: $color-grey-light-1;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-row: 5;
+      grid-column: full-start / full-end;
+    }
 
     padding: 6rem 8vw;
 

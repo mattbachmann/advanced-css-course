@@ -1,7 +1,10 @@
 .features {
   //background-color: lightpink;
   grid-column: center-start / center-end;
-  grid-row: 3;
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-row: 4;
+  }
 
   margin: 15rem 0; // 15rem top and bottom margin
 
